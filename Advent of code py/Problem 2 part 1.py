@@ -2,47 +2,25 @@ path = 'Sources\Input2.txt'
 
 Advent_file = open(path,'r')
 Sample = Advent_file.readlines()
-ConvSample = []
-downlist = []
-uplist = []
-fwlist = []
 xval = 0
 yval = 0
 
-for element in Sample:
+for x in Sample:
 
-    ConvSample.append(element.strip())
+    if 'down' in x:
+        
+        yn = int(x.strip('down '))
+        yval += yn
 
-for x in ConvSample:
-   if 'down' in x:
-       downlist.append(x)
-   elif 'up' in x:
-       uplist.append(x)
-   elif 'forward' in x:
-       fwlist.append(x)
+    elif 'up' in x:
+        
+        yn = int(x.strip('up '))
+        yval -= yn
 
-downval = []
-upval = []
-fwval = []
-
-[downval.append(x.strip('down ')) for x in downlist]
-[upval.append(x.strip('up ')) for x in uplist]
-[fwval.append(x.strip('forward ')) for x in fwlist]
-
-downval = [int(x) for x in downval]
-upval = [int(x) for x in upval]
-fwval = [int(x) for x in fwval]
-
-# for loops go brrrrrrr
-
-for down in downval:
-    yval += down
-
-for up in upval:
-    yval -= up
-
-for forward in fwval:
-    xval += forward
+    elif 'forward ' in x:
+        
+        xn = int(x.strip('forward '))
+        xval += xn
 
 print('depth is: ', yval)
 print('distance is: ', xval)

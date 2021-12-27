@@ -25,28 +25,24 @@ downval = []
 upval = []
 fwval = []
 
-for term in downlist:
+[downval.append(x.strip('down ')) for x in downlist]
+[upval.append(x.strip('up ')) for x in uplist]
+[fwval.append(x.strip('forward ')) for x in fwlist]
 
-    downval.append(term.strip('down '))
-
-for term in uplist:
-
-    upval.append(term.strip('up '))
-
-for term in fwlist:
-
-    fwval.append(term.strip('forward '))
+downval = [int(x) for x in downval]
+upval = [int(x) for x in upval]
+fwval = [int(x) for x in fwval]
 
 # for loops go brrrrrrr
 
 for down in downval:
-    yval += int(down)
+    yval += down
 
 for up in upval:
-    yval -= int(up)
+    yval -= up
 
 for forward in fwval:
-    xval += int(forward)
+    xval += forward
 
 print('depth is: ', yval)
 print('distance is: ', xval)

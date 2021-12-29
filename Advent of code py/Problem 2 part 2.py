@@ -1,7 +1,6 @@
 path = 'Sources\Input2.txt'
 
-Advent_file = open(path,'r')
-Sample = Advent_file.readlines()
+Sample = open(path,'r').readlines()
 xval = 0
 yval = 0
 aim = 0
@@ -10,23 +9,18 @@ for x in Sample:
 
     if 'down' in x:
         
-        yn = int(x.strip('down '))
-        aim += yn
+        aim += int(x.strip('down '))
 
     elif 'up' in x:
         
-        yn = int(x.strip('up '))
-        aim -= yn
+        aim -= int(x.strip('up '))
 
     elif 'forward ' in x:
         
-        xn = int(x.strip('forward '))
-        xval += xn
-        yval += aim * xn
+        xval += int(x.strip('forward '))
+        yval += aim * int(x.strip('forward '))
 
 
 print('depth is: ', yval)
 print('distance is: ', xval)
 print('both multiplied is: ', xval * yval)
-
-

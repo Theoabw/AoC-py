@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4cdc1754-bd0f-4079-b0e6-07be72ffda30</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Problem 2 part 1.py</StartupFile>
+    <StartupFile>Problem 4 part 1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="experiment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Problem 3 part 1 Lagger Edition.py" />
+    <Compile Include="Problem 3 part 1.py" />
     <Compile Include="Problem 2 part 2.py">
       <SubType>Code</SubType>
     </Compile>
@@ -29,6 +34,12 @@
     </Compile>
     <Compile Include="Problem 1 part 1.py" />
     <Compile Include="Problem 1 part 2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Problem 3 part 2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Problem 4 part 1.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

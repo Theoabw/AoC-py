@@ -1,7 +1,5 @@
 path = 'Sources\Input3.txt'
 
-Advent_file = open(path,'r')
-Sample = Advent_file.readlines()
 List = []
 gamma = ''
 epsilon = ''
@@ -20,7 +18,7 @@ pos12 = []
 stramount = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 intamount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-[List.append(x.strip()) for x in Sample]
+[List.append(x.strip()) for x in open(path,'r').readlines()]
 
 for x in List:
     pos1.append(x[0])

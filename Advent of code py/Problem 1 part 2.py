@@ -1,24 +1,20 @@
 path = 'Sources\Input1.txt'
 
-Advent_file = open(path,'r')
-z = 0
-
-Sample = Advent_file.readlines()
-ConvSample = []
+List = []
 Newlist = []
 
-for element in Sample:
+def part2(path):
+    z = 0
+    [List.append(x.strip()) for x in open(path,'r').readlines()]
 
-    ConvSample.append(element.strip())
+    for i, j in enumerate(List[:-2]):
+        Newlist.append(int(j) + int(List[i+1]) + int(List[i+2]))
+
+    for k, l in enumerate(Newlist[:-1]):
+        if l  < Newlist[k+1]: 
+            z += 1
+    return z
 
 
-for i, j in enumerate(ConvSample[:-2]):
-    Newlist.append(int(j) + int(ConvSample[i+1]) + int(ConvSample[i+2]))
-
-for k, l in enumerate(Newlist[:-1]):
-    if l  < Newlist[k+1]: 
-        z += 1
-
-
-print(z)
+print(part2(path))
 

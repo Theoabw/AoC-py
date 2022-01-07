@@ -7,9 +7,8 @@ with open(path, 'r') as raw:
     epsilon = ''
 
 for pos in range(len(List[0])):
-    Posval.extend([[]])
-    Posval[pos].extend([0])
-    
+    Posval.extend([[0]])
+        
     for byte in List:
         if byte[pos] == '1':
             Posval[pos][0] += 1

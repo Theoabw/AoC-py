@@ -1,36 +1,33 @@
-input = "Advent of code py\Sources\Input3.txt"
+path = 'AoC\Sources\Input3.txt'
 
-# Copied a part of this from Lagger
+with open(path, 'r') as raw:
+    List = raw.read().split('\n')
+    Posval = []
 
-def part1(path):
+def part1():
+
     gamma = ''
     epsilon = ''
-    List = []
-    [List.append(x.strip()) for x in open(path,'r').readlines()]
 
-    for x in range(12):
-        zero = 0
-        one = 0
-        
-        for y in List:
+    for pos in range(len(List[0])):
+        Posval.extend([[0]])
             
-            if y[x] == '1':
-                one += 1
-            elif y[x] == '0':
-                zero += 1
-            else:
-                raise ValueError('Invalid input!')
-            
-        if one > zero:
+        for byte in List:
+            if byte[pos] == '1':
+                Posval[pos][0] += 1
+
+    for bit in Posval:
+        if bit[0] > int(len(List)/2):
             gamma += '1'
             epsilon += '0'
         else:
             gamma += '0'
             epsilon += '1'
+    
+    print('\nPART 1')
+    print('power consumption: ', int(gamma, 2) * int(epsilon, 2))
 
-    print('PART 1\n', 'power consuption:', int(gamma, 2) * int(epsilon, 2), '\n')
-
-def part2(path):
+def part2():
     
     orn = []
     cosrn = []
@@ -38,7 +35,7 @@ def part2(path):
     [orn.append(x.strip()) for x in open(path,'r').readlines()]
     [cosrn.append(x.strip()) for x in open(path,'r').readlines()]
 
-    for x in range(12):
+    for x in range(len(orn[0])):
         zero = 0
         one = 0
         
@@ -65,7 +62,7 @@ def part2(path):
             break
 
     #---------------
-    for x in range(12):
+    for x in range(len(cosrn[0])):
         zero = 0
         one = 0
 
@@ -92,7 +89,9 @@ def part2(path):
         if len(cosrn) == 1:
             break
 
-    print('PART 2\n', 'life support rating:', int(orn[0], 2) * int(cosrn[0], 2), '\n')
+    print('\nPART 2')
+    print('life support rating:', int(orn[0], 2) * int(cosrn[0], 2), '\n')
 
-part1(input)
-part2(input)
+
+part1()
+part2()

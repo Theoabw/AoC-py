@@ -21,8 +21,41 @@ def mkgrid():
                 grid[line].append(0)
                 y += 1
 
-def linedraw():
-    for line in xy:
+def drawline1():
+    for line in List:
+        xindex = 0
+        yindex = 0
+        x1, x2 = line[0][0], line[1][0] 
+        y1, y2 = line[0][1], line[1][1]
+
+        if x1 == x2:
+            
+            xindex = x1
+            # order check
+            if y1 > y2:
+                mark = [num for num in range(y2, y1 + 1)]
+            else:
+                mark = [num for num in range(y1, y2 + 1)]
+
+        elif y1 == y2:
+            yindex = y1
+            # order check
+            if line[0][0] > line[1][0]:
+                mark = [num for num in range(x2, x1 + 1)]
+            else:
+                mark = [num for num in range(x1, x2 + 1)]
+
+        # else:
+        #     print('error!')
+
+        for pos in mark:
+            if xindex:
+                grid[pos][xindex] += 1
+            elif yindex:
+                grid[yindex][pos] += 1
+
+def drawline2():
+    for line in List:
         xindex = 0
         yindex = 0
         x1, x2 = line[0][0], line[1][0] 
@@ -46,18 +79,31 @@ def linedraw():
                 mark = [num for num in range(x1, x2 + 1)]
 
         else:
-            print('something went wrong')
+                if (x2 > x1) and (y2 > y1):
+                    xmark = [num for num in range(x2 - x1)]
+                    ymark = [num for num in range(y2 - y1)]
+                elif (x2 > x1) and (y2 < y1):
+                    xmark = [num for num in range(x2 - x1)]
+                    ymark = [num for num in range(0, y2 - y1, -1)]
+                elif (x2 < x1) and (y2 > y1):
+                    xmark = [num for num in range(0, x2 - x1, -1)]
+                    ymark = [num for num in range(y2 - y1)]
+                elif (x2 < x1) and (y2 < y1):
+                    xmark = [num for num in range(0, x2 - x1, -1)]
+                    ymark = [num for num in range(0, y2 - y1, -1)]
+                else:
+                    print('error!')
 
-        # for pos in mark:
-        #     if xindex:
-        #         grid[pos].insert(grid[pos][xindex] + 1, xindex)
-        #     elif yindex:
-        #         grid[yindex].insert(grid[yindex][pos] + 1, pos)
-        for pos in mark:
-            if xindex:
-                grid[pos][xindex] += 1
-            elif yindex:
-                grid[yindex][pos] += 1
+
+        if mark:
+            for pos in mark:
+                if xindex:
+                    grid[pos][xindex] += 1
+                elif yindex:
+                    grid[yindex][pos] += 1
+        elif xmark and ymark:
+            for pos in range(len(xmark)):
+                grid[ymark[pos]][xmark[pos]] += 1
 
 def sumcheck():
     sum = 0
@@ -70,12 +116,19 @@ def sumcheck():
     return sum
 
 def part1():
-    xycheck()
     mkgrid()
-    linedraw()
+    drawline1()
     print('\npart 1')
     print('Answer is:', sumcheck(), '\n')
+
+# def part2():
+#     mkgrid()
+#     drawline2()
+#     print('\npart 2')
+#     print('Answer is:', sumcheck(), '\n')
+
 
 # I might be overusing functions
 
 part1()
+# part2()

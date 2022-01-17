@@ -1,8 +1,7 @@
-path = "Advent of code py\Sources\Input4.txt"
-with open(path, 'r') as raw:
-    numbers, *boards = raw.read().split('\n\n')
-    numbers = [int(x) for x in numbers.split(',')]
-    boards = [[[int(x) for x in row.split()] for row in board.split('\n')] for board in boards]
+with open('AoC\Sources\Input4.txt', 'r') as raw:
+    read = raw.read().split('\n\n')
+    numbers = tuple([int(x) for x in read[0].split(',')])
+    boards = [[[int(num) for num in line.split()] for line in board.split('\n')] for board in read[2:]]
 
 def bview(board):
         print('Board', boards.index(board) + 1, '\n')
@@ -71,7 +70,7 @@ def part2():
                 for board in bcopy:
                     Marker(num, board)
                     if wincheck(board):
-                        return sum(board) * num
+                        return (sum(board) * num)
                 
                 
 

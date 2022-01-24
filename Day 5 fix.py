@@ -1,7 +1,4 @@
-from re import L
-
-
-with open('AoC\Sources\Input5.txt', 'r') as raw:
+with open('Input\Input5.txt', 'r') as raw:
     List = raw.readlines()
 
 

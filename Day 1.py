@@ -1,4 +1,4 @@
-with open('AoC\Sources\Input1.txt', 'r') as raw:
+with open('Input\Input1.txt', 'r') as raw:
     List = [int(num) for num in raw.readlines()]
 
 def part1():
@@ -22,5 +22,7 @@ def part2():
             z += 1
     return z
 
-print('Answer for part 1:', part1())
-print('Answer for part 2:', part2())
+
+if __name__ == '__main__':
+    print('Answer for part 1:', part1())
+    print('Answer for part 2:', part2())

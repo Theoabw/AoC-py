@@ -1,11 +1,11 @@
-with open('AoC\Sources\Input5.txt', 'r') as raw:
+with open('Input\Input5.txt', 'r') as raw:
     List = [[[int(num) for num in coord.split(',')] for coord in x.strip('\n').split(' -> ')] for x in raw.readlines()]
     xy = []
     grid = []
 
-def printfunc(input):
-    for line in input:
-        print('index', input.index(line) , ':' , line)
+def printfunc(pf_input):
+    for line in pf_input:
+        print('index', pf_input.index(line), ':', line)
 
 def xycheck():
     

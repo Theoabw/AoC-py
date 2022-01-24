@@ -1,4 +1,4 @@
-with open('AoC\Sources\Input3.txt', 'r') as raw:
+with open('Input\Input3.txt', 'r') as raw:
     List = raw.read().split('\n')
     Posval = []
 
@@ -76,6 +76,6 @@ def part2():
 
     print(f"\nPart 2\nlife support rating: {int(orn[0], 2) * int(cosrn[0], 2)} \n")
 
-
-part1()
-part2()
+if __name__ == '__main__':
+    part1()
+    part2()

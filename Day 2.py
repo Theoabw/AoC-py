@@ -1,4 +1,4 @@
-with open('AoC\Sources\Input2.txt', 'r') as raw:
+with open('Inpt\Input2.txt', 'r') as raw:
     Instr = [x.strip().split(' ') for x in raw.readlines()]
 
 
@@ -36,6 +36,6 @@ def part2():
 
     print(f"Part 2\nanswer is: {xval * yval}\n")
 
-
-part1()
-part2()
+if __name__ == '__main__':
+    part1()
+    part2()

@@ -56,7 +56,9 @@ def part2():
             marker(num, board[1])
             if wincheck(board[1]):
                 if len(boardscopy) < 2:
-                    print(f"Part 2\nboard {board[0] + 1} is the last board to win and the answer is {bsum(board[1]) * num}")
+                    boardsum = bsum(board[1])
+                    print(f"Part 2\nboard {board[0] + 1} is the last board to win and the answer is "
+                          f"{boardsum * num} where {boardsum = } and {num = } ")
                     return True
                 else:
                     boardscopy.remove(board)

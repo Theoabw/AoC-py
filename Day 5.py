@@ -46,5 +46,5 @@ for row in coordintr:
 print(Counter(coordlist))
 print(len([x for x in Counter(coordlist).values() if x > 1]))
 
-
+# TODO: fix this
 # 21766 is too high

@@ -16,9 +16,9 @@
 # fish_simulation()
 
 
-import time
+from time import perf_counter
 
-start_time = time.perf_counter()
+start_time = perf_counter()
 starting_fish = [int(i) for i in
                  open("Input/Input6.txt", "r").read().split(',')]
 total = 0
@@ -60,4 +60,4 @@ for fish in current_states:
     total += current_states[fish]
 
 print(f"length is {total}")
-print(f"took {time.perf_counter() - start_time} seconds")
+print(f"took {perf_counter() - start_time} seconds")
